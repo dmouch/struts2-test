@@ -6,10 +6,104 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>struts2-test</name>
+    <url>https://github.com/dmouch/struts2-test</url>
+
+    <scm>
+        <connection>https://github.com/dmouch/struts2-test.git</connection>
+        <developerConnection>https://github.com/dmouch/struts2-test.git</developerConnection>
+        <url>https://github.com/dmouch/struts2-test</url>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Versions -->
+        <!-- Dependencies -->
+        <version.junit>4.11</version.junit>
+        <version.javaee-api>7.0</version.javaee-api>
+        <version.javaee-webapi>7.0</version.javaee-webapi>
+        <!-- Plugins -->
+        <version.compiler>3.1</version.compiler>
+        <version.ear>2.8</version.ear>
+        <version.ejb>2.3</version.ejb>
+        <version.war>2.3</version.war>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${version.junit}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${version.javaee-api}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-web-api</artifactId>
+                <version>${version.javaee-webapi}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>gr.dvm.struts2</groupId>
+                <artifactId>struts2-test-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>gr.dvm.struts2</groupId>
+                <artifactId>struts2-test-ejb</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+                <groupId>gr.dvm.struts2</groupId>
+                <artifactId>struts2-test-web</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${version.compiler}</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <version>${version.ear}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ejb-plugin</artifactId>
+                    <version>${version.ejb}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${version.war}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
     <modules>
         <module>struts2-test-common</module>
         <module>struts2-test-ejb</module>
         <module>struts2-test-web</module>
         <module>struts2-test-ear</module>
-  </modules>
+    </modules>
 </project>
