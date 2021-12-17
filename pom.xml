@@ -19,7 +19,7 @@
 
         <!-- Versions -->
         <!-- Dependencies -->
-        <version.junit>4.11</version.junit>
+        <version.junit>4.13</version.junit>
         <version.javaee-api>7.0</version.javaee-api>
         <version.javaee-webapi>7.0</version.javaee-webapi>
         <version.struts2>2.5.22</version.struts2>
